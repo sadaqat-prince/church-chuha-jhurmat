@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Church Chuha Jhurmat | faith, hope & community</title>
+  <!-- Font Awesome 6 (free) for simple icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+      background-color: #f9fbfd;   /* soft ivory background */
+      color: #2c3e4f;              /* deep blue‑grey for text */
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    /* calm color palette */
+    :root {
+      --soft-blue: #d9e6f2;        /* background sections / cards */
+      --ivory: #fefcf0;            /* page background / cards */
+      --gold: #c9a35c;             /* accents, headings, borders */
+      --deep-blue: #34597a;        /* primary text / headings */
+      --warm-gray: #5d7079;        /* secondary text */
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+
+    /* typography */
+    h1, h2, h3 {
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      color: var(--deep-blue);
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      font-weight: 300;
+      color: white;                /* hero text white, overlayed */
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      border-left: 5px solid var(--gold);
+      padding-left: 1.2rem;
+      margin-bottom: 2rem;
+      font-weight: 350;
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: var(--deep-blue);
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--warm-gray);
+    }
+
+    /* buttons / links */
+    .btn {
+      display: inline-block;
+      background-color: var(--gold);
+      color: white;
+      padding: 0.7rem 2rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 500;
+      letter-spacing: 0.7px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s, box-shadow 0.3s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .btn:hover {
+      background-color: #b48c4a;
+      box-shadow: 0 4px 12px rgba(201, 163, 92, 0.3);
+    }
+
+    /* HEADER (simple navigation) */
+    nav {
+      background-color: var(--ivory);
+      padding: 1rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--soft-blue);
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: var(--deep-blue);
+      letter-spacing: 1px;
+    }
+    .logo i {
+      color: var(--gold);
+      margin-right: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--deep-blue);
+      font-weight: 400;
+      border-bottom: 2px solid transparent;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      border-bottom-color: var(--gold);
+    }
+
+    /* HERO SECTION */
+    .hero {
+      background: linear-gradient(rgba(25, 45, 65, 0.65), rgba(30, 50, 70, 0.7)), 
+                  url('https://images.pexels.com/photos/699499/pexels-photo-699499.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') center/cover no-repeat;
+      min-height: 75vh;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      color: rgba(255,255,255,0.9);
+      margin: 1.5rem 0;
+    }
+
+    /* service & events cards */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    .card {
+      background: var(--ivory);
+      padding: 2rem 1.5rem;
+      border-radius: 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(201, 163, 92, 0.15);
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .card i {
+      color: var(--gold);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .card h3 {
+      font-size: 1.7rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .time {
+      font-weight: 600;
+      color: var(--deep-blue);
+      margin: 0.8rem 0 0.2rem;
+    }
+
+    /* mission section (soft blue background) */
+    .mission {
+      background-color: var(--soft-blue);
+    }
+
+    .mission-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .mission-text {
+      flex: 2 1 400px;
+    }
+    .mission-text p {
+      font-size: 1.2rem;
+    }
+    .mission-stats {
+      flex: 1 1 200px;
+      background: rgba(255,255,255,0.5);
+      padding: 2rem;
+      border-radius: 40px;
+      border: 1px solid var(--gold);
+    }
+    .stat-item {
+      margin: 1.8rem 0;
+    }
+    .stat-number {
+      font-size: 2.3rem;
+      font-weight: 300;
+      color: var(--deep-blue);
+      line-height: 1.2;
+    }
+
+    /* GALLERY grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .gallery-item {
+      background: var(--ivory);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(201, 163, 92, 0.2);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.03);
+    }
+    .gallery-caption {
+      padding: 1rem 1rem 1.3rem;
+      font-weight: 500;
+      color: var(--deep-blue);
+      background: var(--ivory);
+    }
+
+    /* get involved cards (different style) */
+    .involve-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+    .involve-card {
+      background: var(--soft-blue);
+      border-radius: 32px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: 0.2s;
+      border: 1px solid rgba(201,163,92,0.3);
+    }
+    .involve-card i {
+      font-size: 2.8rem;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    /* CONTACT & LOCATION (side by side) */
+    .contact-location {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      background-color: var(--ivory);
+      border-radius: 48px;
+      padding: 2.5rem;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.02);
+    }
+
+    .info-block i {
+      color: var(--gold);
+      width: 2rem;
+      font-size: 1.4rem;
+    }
+    .info-block p {
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1.2rem;
+      border: 1px solid var(--soft-blue);
+      border-radius: 40px;
+      background: white;
+      font-family: inherit;
+      transition: 0.2s;
+    }
+    .contact-form input:focus, .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 2px rgba(201,163,92,0.3);
+    }
+    .contact-form textarea {
+      min-height: 120px;
+      resize: vertical;
+      border-radius: 28px;
+    }
+
+    .map-placeholder {
+      background: var(--soft-blue);
+      border-radius: 32px;
+      padding: 2rem 1rem;
+      text-align: center;
+      border: 2px dashed var(--gold);
+    }
+    .map-placeholder i {
+      font-size: 3rem;
+      color: var(--deep-blue);
+      opacity: 0.7;
+    }
+
+    /* footer */
+    footer {
+      background-color: var(--deep-blue);
+      color: #e6eef5;
+      text-align: center;
+      padding: 2rem;
+      font-size: 1rem;
+      margin-top: 2rem;
+    }
+    footer a {
+      color: var(--gold);
+    }
+
+    /* mobile adjustments */
+    @media (max-width: 720px) {
+      h1 { font-size: 2.2rem; }
+      .hero h1 { font-size: 2.4rem; }
+      .contact-location { grid-template-columns: 1fr; }
+      .nav-links { margin-top: 0.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      .container { padding: 1.8rem 1rem; }
+      h2 { font-size: 1.9rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo"><i class="fas fa-church"></i> Church Chuha Jhurmat</div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#services">Worship</a>
+      <a href="#mission">Mission</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#involve">Serve</a>
+      <a href="#contact">Find us</a>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION (with peaceful image) -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>A Place of Faith, Hope, and Community in Chuha Jhurmat</h1>
+      <p>Everyone belongs here – join us for worship, fellowship, and service.</p>
+      <a href="#services" class="btn">Service times &rarr;</a>
+    </div>
+  </section>
+
+  <!-- SERVICE TIMES & EVENTS -->
+  <section class="container" id="services">
+    <h2>☩ Service times & events</h2>
+    <div class="cards-grid">
+      <div class="card">
+        <i class="fas fa-pray"></i>
+        <h3>Sunday worship</h3>
+        <p class="time">8:30 AM · English service</p>
+        <p class="time">11:00 AM · Chuha Jhurmat fellowship</p>
+        <p>Holy Communion every first Sunday.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-child"></i>
+        <h3>Sunday school</h3>
+        <p class="time">9:45 AM (during term)</p>
+        <p>Nursery through high school · all welcome.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-hand-holding-heart"></i>
+        <h3>Wednesday prayer</h3>
+        <p class="time">7:00 PM · midweek gathering</p>
+        <p>Quiet prayer & bible reflection.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-calendar-alt"></i>
+        <h3>Harvest festival</h3>
+        <p class="time">October 12, 2025</p>
+        <p>Community meal & outdoor celebration. All are invited!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR MISSION (with history/outreach) -->
+  <section class="mission" id="mission">
+    <div class="container mission-flex">
+      <div class="mission-text">
+        <h2>Our mission & heart</h2>
+        <p>For over 60 years, Church Chuha Jhurmat has been a spiritual home in the heart of our area. Rooted in faith, we extend hands through food outreach, youth mentorship, and visiting the elderly. We believe in a hope that transforms.</p>
+        <p><strong>Outreach programs:</strong> weekly community kitchen · sewing cooperative · children’s homework club · prison letter ministry.</p>
+        <p><i>“Love the Lord, and love your neighbour” – that simple call shapes everything we do.</i></p>
+      </div>
+      <div class="mission-stats">
+        <div class="stat-item">
+          <div class="stat-number">1958</div>
+          <div>founded in Chuha Jhurmat</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5+</div>
+          <div>local outreach programs</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">∞</div>
+          <div>open doors, all are welcome</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY (community life) -->
+  <section class="container" id="gallery">
+    <h2>Glimpses of fellowship</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://images.pexels.com/photos/7551642/pexels-photo-7551642.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Community gathering" loading="lazy">
+        <div class="gallery-caption">Sunday lunch together</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.pexels.com/photos/5428222/pexels-photo-5428222.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Youth group activity" loading="lazy">
+        <div class="gallery-caption">Youth garden project</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.pexels.com/photos/6995410/pexels-photo-6995410.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Choir practice" loading="lazy">
+        <div class="gallery-caption">Choir & music</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.pexels.com/photos/6646864/pexels-photo-6646864.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Church interior" loading="lazy">
+        <div class="gallery-caption">Quiet corner for prayer</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GET INVOLVED (volunteer, choir, support) -->
+  <section class="container" id="involve">
+    <h2>Get involved</h2>
+    <div class="involve-grid">
+      <div class="involve-card">
+        <i class="fas fa-hands-helping"></i>
+        <h3>Volunteer</h3>
+        <p>Serve at our food pantry or community kitchen. No task too small.</p>
+      </div>
+      <div class="involve-card">
+        <i class="fas fa-music"></i>
+        <h3>Join the choir</h3>
+        <p>Practices Thursdays 7pm. All voices welcome – come sing!</p>
+      </div>
+      <div class="involve-card">
+        <i class="fas fa-dove"></i>
+        <h3>Missions support</h3>
+        <p>Financial or material aid for local & global partners.</p>
+      </div>
+      <div class="involve-card">
+        <i class="fas fa-seedling"></i>
+        <h3>Youth & children</h3>
+        <p>Help with sunday school or youth club – make a difference.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT & LOCATION (embedded map & form) -->
+  <section class="container" id="contact">
+    <h2>Find us & prayer requests</h2>
+    <div class="contact-location">
+      <!-- left side: location + embedded map -->
+      <div>
+        <div class="info-block" style="margin-bottom: 2rem;">
+          <p><i class="fas fa-map-pin"></i> Church Chuha Jhurmat, Main Road, Chuha Jhurmat area</p>
+          <p><i class="fas fa-phone-alt"></i> +92 (0)3xx 1234567</p>
+          <p><i class="fas fa-envelope"></i> hello@churchjhurmat.org</p>
+        </div>
+        <div class="map-placeholder">
+          <i class="fas fa-map-marked-alt fa-3x" style="margin-bottom: 0.5rem;"></i>
+          <h4 style="color: var(--deep-blue);">📍 we are here</h4>
+          <!-- embedded map (iframe simulation with static design, but real map can be replaced) -->
+          <div style="background: #eef3f7; padding: 0.8rem; border-radius: 40px; margin-top: 0.8rem;">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108933.43692776157!2d74.21885101367249!3d31.48294528063444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39190419d7f5d6c5%3A0x3d8bad88c5cb3b8!2sLahore%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1687654321987!5m2!1sen!2s" 
+              width="100%" height="200" style="border:0; border-radius: 28px;" allowfullscreen="" loading="lazy"></iframe>
+            <p style="margin: 0.5rem 0 0; color: var(--deep-blue);"><i>Exact location: Chuha Jhurmat Rd, near the chowk</i></p>
+          </div>
+        </div>
+      </div>
+      <!-- right side: contact form -->
+      <div class="contact-form">
+        <h3 style="margin-top: 0; border-left: 3px solid var(--gold); padding-left: 1rem;">send a prayer request / message</h3>
+        <form action="#" method="post">
+          <input type="text" placeholder="Your name" required>
+          <input type="email" placeholder="Email address" required>
+          <input type="text" placeholder="Subject (e.g. prayer request)">
+          <textarea placeholder="How can we pray for you? or your question..."></textarea>
+          <button type="submit" class="btn"><i class="far fa-paper-plane"></i> Send message</button>
+        </form>
+        <p style="font-size: 0.9rem; margin-top: 1rem;">Your information is kept confidential.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>☩ Church Chuha Jhurmat — a digital sanctuary of hope ☩</p>
+    <p style="margin-top: 0.5rem;">© 2025 · All are welcome · <a href="#" style="color: var(--gold);">Facebook</a> · <a href="#" style="color: var(--gold);">Directions</a></p>
+  </footer>
+
+  <!-- small smooth scroll behaviour (optional, but nice) -->
+  <script>
+    (function() {
+      const navLinks = document.querySelectorAll('.nav-links a, .btn[href^="#"]');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href');
+          if(targetId && targetId.startsWith('#')) {
+            e.preventDefault();
+            const target = document.querySelector(targetId);
+            if(target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
